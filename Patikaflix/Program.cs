@@ -33,7 +33,10 @@ namespace Patikaflix
                 Name = a.Name,
                 Genre = a.Genre,
                 Producer = a.Producer,
-            }).ToList().Where(x => x.Genre == "komedi");
+            }).ToList()
+            .Where(x => x.Genre == "komedi")
+            .OrderBy(a => a.Name)
+            .ThenBy(a => a.Producer);
 
             Console.WriteLine("Oluşturulan alt dizi elemanları şu şekildedir:");
             foreach (MovieSum movie in sumMovies)
